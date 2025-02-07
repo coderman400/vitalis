@@ -1,23 +1,17 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
-  googleId: {
-    type: String,
-    required: true,
-  },
-  name: {
-    type: String,
-    required: true,
-  },
+  firstName: String,
+  lastName: String,
+  picture: String,
   email: {
     type: String,
     required: true,
+    unique: true,
   },
-  picture: {
-    type: String,
-  },
+  token: String, // Storing the JWT token
 });
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model("User", userSchema);
 
 module.exports = User;

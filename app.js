@@ -1,21 +1,23 @@
 const express = require('express');
-const passport = require('passport');
 const session = require('express-session');
+const passport = require('passport');
 const mongoose = require('mongoose');
-const authRoutes = require('./routes/auth');
-require('./config/passport'); // Initialize Passport.js configuration
+const authRoutes = require('./routes/auth'); // Import authentication routes
+require('./config/passport'); // Import passport configuration
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
-// Connect to MongoDB (adjust the URI as needed)
-mongoose.connect('mongodb://localhost/db', { useNewUrlParser: true, useUnifiedTopology: true })
+// MongoDB connection
+mongoose.connect('mongodb://localhost/google-auth', { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.log(err));
 
+// Middleware
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-// Session configuration
+// Session setup
 app.use(session({
   secret: 'your_secret_key',
   resave: false,
@@ -26,15 +28,15 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Use authentication routes
+// Authentication routes
 app.use('/auth', authRoutes);
 
 // Default route
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.send('Hello, welcome to the Google Auth app!');
 });
 
-// Start server
+// Start the server
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
 });
