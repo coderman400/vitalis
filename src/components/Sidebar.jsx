@@ -5,7 +5,7 @@ const Sidebar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
 
   const menuItems = [
-    { icon: LayoutDashboard, text: 'Dashboard', path: '/dashboard' },
+    { icon: LayoutDashboard, text: 'Dashboard', path: '/' },
     { icon: MessageSquare, text: 'Chat', path: '/chat' },
     { icon: FileText, text: 'Documents', path: '/documents' },
     { icon: User, text: 'Account', path: '/account' },

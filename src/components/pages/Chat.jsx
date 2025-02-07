@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-// import ai_planet_img from '../assets/ai_planet.png';
+import UploadButton from '../ui/UploadButton';
+import ai_img from '../../assets/ai.png';
 import { FaPaperPlane } from 'react-icons/fa';
-// import user_img from '../assets/user_img.png';
+import user_img from '../../assets/user_img.png';
 import ReactMarkdown from 'react-markdown';
 
 const apiAddress = '';
@@ -60,32 +61,36 @@ const Chat = ({ prompt, setPrompt, Id }) => {
 
     return (
         <div className='flex align-center justify-center h-screen w-full'>
-            <div className='w-4/5 mt-20 overflow-y-auto rounded-2xl h-3/4 relative flex flex-col justify-left pb-20'> {/* Added padding bottom */}
+            <div className='w-4/5 mt-20 overflow-y-auto rounded-2xl h-3/4 relative flex flex-col justify-left pb-20'>
                 {messages.map((msg, index) => (
                     <div key={index} className={`mx-6 my-4 ${msg.type === 'response' ? `text-left` : `text-right`}`}>
                         <p className='inline-flex items-center'>
-                            {/* {msg.type === 'response' && <img src={ai_planet_img} className='h-10 w-10 mr-4' alt="AI Avatar" />} */}
+                            {msg.type === 'response' && <img src={ai_img} className='h-10 w-10 mr-4' alt="AI Avatar" />}
                             <span className={`p-3 rounded-lg w-3/4 ${msg.type === 'prompt' ? 'bg-gray-100' : 'bg-gray-200'}`}>
                                 {/* Render markdown content */}
                                 <ReactMarkdown>{msg.content}</ReactMarkdown>
                             </span>
-                            {/* {msg.type === 'prompt' && <img src={user_img} className='h-10 w-10 ml-4' alt="User Avatar" />} */}
+                            {msg.type === 'prompt' && <img src={user_img} className='h-10 w-10 ml-4' alt="User Avatar" />}
                         </p>
                     </div>
                 ))}
                 <div className={`mx-6 my-4 text-right`}>
                         <p className='inline-flex items-center'>
+
                             <span className={`p-3 rounded-lg w-full bg-gray-300`}>
                                 {/* Render markdown content */}
                                 <ReactMarkdown>{"SHIIIII"}</ReactMarkdown>
                             </span>
+                            <img src={user_img} className='h-10 w-10 ml-4' alt="User Avatar" />
                         </p>
                 </div>
                 <div className={`mx-6 my-4 text-left`}>
                         <p className='inline-flex items-center'>
-                            <span className={`p-3 rounded-lg w-3/4 bg-gray-300`}>
+                            <img src={ai_img} className='h-10 w-10 mr-4' alt="AI Avatar" />
+                            <span className={`p-3 rounded-lg w-full bg-gray-300`}>
                                 {/* Render markdown content */}
-                                <ReactMarkdown>{"Lmaooo u have skibidi cancer"}</ReactMarkdown>
+                                <UploadButton />
+                                <ReactMarkdown>{"Lmaooo u have skibidi cancer, skibidi skibidi meow meow skibidi skibidi"}</ReactMarkdown>
                             </span>
                         </p>
                 </div>
