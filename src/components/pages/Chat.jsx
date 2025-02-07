@@ -78,7 +78,6 @@ const Chat = ({ prompt, setPrompt, Id }) => {
                         <p className='inline-flex items-center'>
 
                             <span className={`p-3 rounded-lg w-full bg-gray-300`}>
-                                {/* Render markdown content */}
                                 <ReactMarkdown>{"SHIIIII"}</ReactMarkdown>
                             </span>
                             <img src={user_img} className='h-10 w-10 ml-4' alt="User Avatar" />
@@ -88,8 +87,8 @@ const Chat = ({ prompt, setPrompt, Id }) => {
                         <p className='inline-flex items-center'>
                             <img src={ai_img} className='h-10 w-10 mr-4' alt="AI Avatar" />
                             <span className={`p-3 rounded-lg w-full bg-gray-300`}>
-                                {/* Render markdown content */}
-                                <UploadButton />
+                                <UploadButton /> 
+                                {/* upload button */}
                                 <ReactMarkdown>{"Lmaooo u have skibidi cancer, skibidi skibidi meow meow skibidi skibidi"}</ReactMarkdown>
                             </span>
                         </p>

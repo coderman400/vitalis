@@ -7,17 +7,17 @@ import Dashboard from './components/pages/Dashboard.jsx';
 import Calendar from './components/pages/Calendar.jsx';
 import Documents from './components/pages/Documents.jsx';
 import Landing from './components/pages/Landing.jsx'
-import { GoogleLogin } from '@react-oauth/google';
+// import { GoogleLogin } from '@react-oauth/google';
 function App() {
-  const [user, setUser] = useState({});
+  // const [user, setUser] = useState({});
 
-  useEffect(() => {
-    const theUser = localStorage.getItem("user");
+  // useEffect(() => {
+  //   const theUser = localStorage.getItem("user");
 
-    if (theUser && !theUser.includes("undefined")) {
-      setUser(JSON.parse(theUser));
-    }
-  }, []);
+  //   if (theUser && !theUser.includes("undefined")) {
+  //     setUser(JSON.parse(theUser));
+  //   }
+  // }, []);
   return (
     <Router>
       <div className='flex flex-row'>
@@ -26,7 +26,7 @@ function App() {
           <Routes>
             <Route
               path="/"
-              element={<Landing />}
+              element={<Dashboard/>}
             />
             <Route
               path="/chat"
